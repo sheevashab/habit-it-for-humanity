@@ -1,4 +1,5 @@
 .detail {
   background-color: red;
+  display: flex;
   text-align: center;
 }
