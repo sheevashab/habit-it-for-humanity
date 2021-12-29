@@ -42,6 +42,6 @@ export async function getStaticProps() {
       })),
     },
     //revalidate regenerates data and is in seconds
-    revalidate: 5,
+    revalidate: 1,
   };
 }

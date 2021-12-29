@@ -34,7 +34,8 @@ export async function getStaticPaths() {
   return {
     //false = paths contail all supported values
     //true = next js will try to pregenerate without all supported values
-    fallback: false,
+    //blocking means no 404 but rather pregenerate when needed and cache
+    fallback: "blocking",
     paths: habits.map((habit) => ({
       params: { habitId: habit._id.toString() },
     })),
