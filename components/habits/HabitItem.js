@@ -1,7 +1,7 @@
 import classes from "./HabitItem.module.css";
 import { useRouter } from "next/router";
 
-export default function HabitItem(props) {
+function HabitItem(props) {
   const router = useRouter();
 
   function showDetailsHandler() {
@@ -17,3 +17,5 @@ export default function HabitItem(props) {
     </li>
   );
 }
+
+export default HabitItem;

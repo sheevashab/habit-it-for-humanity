@@ -1,18 +1,20 @@
 import classes from "./HabitList.module.css";
 import HabitItem from "./HabitItem";
 
-export default function HabitList(props) {
+function HabitList(props) {
+  console.log(props);
   return (
-    <ul>
+    <ul className={classes.ul}>
       {props.habits.map((habit) => (
         <HabitItem
-          key={habit.id}
-          id={habit.id}
-          title={habit.title}
-          description={habit.description}
-          frequency={habit.frequency}
+          key={habit?.id}
+          id={habit?.id}
+          title={habit?.title}
+          frequency={habit?.frequency}
         />
       ))}
     </ul>
   );
 }
+
+export default HabitList;

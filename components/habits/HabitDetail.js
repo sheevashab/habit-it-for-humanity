@@ -1,6 +1,6 @@
 import classes from "./HabitDetail.module.css";
 
-export default function HabitDetail(props) {
+function HabitDetail(props) {
   return (
     <div className={classes.detail}>
       <h1>{props.title}</h1>
@@ -9,3 +9,5 @@ export default function HabitDetail(props) {
     </div>
   );
 }
+
+export default HabitDetail;

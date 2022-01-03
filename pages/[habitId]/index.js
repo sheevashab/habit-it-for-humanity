@@ -3,7 +3,8 @@ import { Fragment } from "react";
 import Head from "next/head";
 import HabitDetail from "../../components/habits/HabitDetail";
 
-export default function HabitId(props) {
+// [] indicates a dynamic slug
+function HabitId(props) {
   return (
     <Fragment>
       <Head>
@@ -19,7 +20,7 @@ export default function HabitId(props) {
   );
 }
 
-//dynamically allows next js to know which pages to pregenerate
+//dynamically allows next.js to know which pages to pregenerate
 export async function getStaticPaths() {
   const client = await MongoClient.connect(
     "mongodb+srv://sheeva:sheeva1@cluster0.ienob.mongodb.net/habitIt?retryWrites=true&w=majority"
@@ -42,21 +43,20 @@ export async function getStaticPaths() {
   };
 }
 
-//for editing habit
 export async function getStaticProps(context) {
   //fetch data for a single habit
   const habitId = context.params.habitId;
-
+  //connect to database
   const client = await MongoClient.connect(
     "mongodb+srv://sheeva:sheeva1@cluster0.ienob.mongodb.net/habitIt?retryWrites=true&w=majority"
   );
   const db = client.db();
   const habitItCollection = db.collection("habitIt");
-
   //find a single habit
   const selectedHabit = await habitItCollection.findOne({
     _id: ObjectId(habitId),
   });
+  //close connection
   client.close();
 
   return {
@@ -70,3 +70,5 @@ export async function getStaticProps(context) {
     },
   };
 }
+
+export default HabitId;

@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav>
-      <h1>Habit-it for Humanity</h1>
-      <ul>
-        <li>
+    <nav className={classes.header}>
+      <h1 className={classes.logo}>Habit-it for Humanity</h1>
+      <ul className={classes.header}>
+        <li className={classes.header}>
           <Link href="/">All Habits</Link>
         </li>
-        <li>
+        <li className={classes.header}>
           <Link href="/create-habit">Add Habit</Link>
         </li>
       </ul>
