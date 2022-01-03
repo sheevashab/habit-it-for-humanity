@@ -18,10 +18,7 @@ function CreateHabit() {
       },
     });
     const data = await response.json();
-    //console.logs are showing up before error clears them out
     console.log(data);
-    console.log(enteredHabitData);
-
     router.push("/");
   }
 
